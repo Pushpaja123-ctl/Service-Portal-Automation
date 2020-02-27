@@ -4,8 +4,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import com.ctl.it.qa.sample.tools.steps.smallbusiness.SmallBusinessSteps;
 
-
-import cucumber.api.java.en.*;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.Steps;
 
 public class SmallBusinessStepDefinition {
