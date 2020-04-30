@@ -37,7 +37,7 @@ public class StepDefinition {
 		}catch(Exception e) {
 			
 		}finally {
-			RallyTools.captureResultforCaaC(scenario);
+			userSteps.captureTestResult(scenario);
 			userSteps.getDriver().close();
 			userSteps.getDriver().quit();
 			
