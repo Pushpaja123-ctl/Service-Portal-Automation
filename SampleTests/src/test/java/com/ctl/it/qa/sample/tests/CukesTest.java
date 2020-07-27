@@ -7,7 +7,7 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
 import com.ctl.it.qa.staf.Environment;
-import com.ctl.it.qa.staf.RallyTools;
+import com.ctl.it.qa.staf.HtmlReport;
 import com.ctl.it.qa.staf.STAFEnvironment;
 import com.ctl.it.qa.staf.Steps;
 import com.ctl.it.qa.staf.TestEnvironment;
@@ -37,12 +37,11 @@ public class CukesTest {
 	public static void setEnvironment() {
 		STAFEnvironment.registerEnvironment(CukesTest.class);
 		Steps.initialize("sample.xml");//Data input file name (present in SampleTools/src/test/resources) is provided
-		RallyTools.initiateRallyLogin();//Method to initialize CaaC login
 	}
 	
 	@AfterClass
 	public static void clearEnvironment() {
-		RallyTools.closeRallyAPI();//Method to kill CaaC api process
+		HtmlReport.generate();//To generate customized Html report
 	}
 	
 	/*

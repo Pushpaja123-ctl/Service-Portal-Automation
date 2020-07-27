@@ -7,7 +7,6 @@ import org.openqa.selenium.TakesScreenshot;
 
 import com.ctl.it.qa.sample.tools.steps.user.UserSteps;
 import com.ctl.it.qa.staf.Page;
-import com.ctl.it.qa.staf.RallyTools;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
