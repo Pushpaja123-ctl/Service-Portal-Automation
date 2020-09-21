@@ -62,9 +62,9 @@ pipeline {
 
     parameters {
       //      https://www.jenkins.io/doc/book/pipeline/syntax/#parameters
-      choice(name: 'Environment', choices: ['TEST4', 'TEST2', 'TEST1'], description: '')
+      choice(name: 'Environment', choices: ['DEV', 'TEST4', 'TEST2', 'TEST1'], description: '')
       choice(name: 'TestType', choices: ['Sanity'], description: '')
-      choice(name: 'MAL', choices: ['ESHOP'], description: '')
+      choice(name: 'MAL', choices: ['STAF'], description: '')
       choice(name: 'TestTool', choices: ['STAF'], description: '')
 
     }
@@ -119,16 +119,16 @@ pipeline {
           script {
             sh('curl -k https://ctl-consumer--pp4uat.my.salesforce.com/')
             sh('cat /etc/hosts')
-            jslMavenWrapper("-f EshopTools/pom.xml clean install")
+            jslMavenWrapper("-f SampleTools/pom.xml clean install")
             try {
-	      jslMavenWrapper("-f EShopTests/pom.xml clean verify serenity:aggregate -Dstaf.mal.key=${params.MAL} -Dstaf.testtype.key=${params.TestType} -Dstaf.environment.key=${params.Environment} -Dcucumber.options=\"src/test/resources/features --tags @EShopSanity --plugin json:target/EShopReports.json\" -Dwebdriver.driver=chrome -Dwebdriver.timeouts.implicitlywait=40000")
+	      jslMavenWrapper("-f SampleTests/pom.xml clean verify serenity:aggregate -Dstaf.mal.key=${params.MAL} -Dstaf.testtype.key=${params.TestType} -Dstaf.environment.key=${params.Environment} -Dcucumber.options=\"src/test/resources/features --tags @EShopSanity --plugin json:target/EShopReports.json\" -Dwebdriver.driver=chrome -Dwebdriver.timeouts.implicitlywait=40000")
             }
             catch (Exception e) {
               println "Tests executed but failed. Check the logs, login is working." 
             }
             // As tests are failing the index is not generated
-            jslPublishHTMLTestResults('index.html','EShopTests/target/site/serenity', 'EShop HTML Report')
-            //jslPublishHTMLTestResults('*.html', 'EShopTests/target/site/serenity', 'EShop HTML Report')
+            jslPublishHTMLTestResults('index.html','SampleTests/target/site/serenity', 'Sample STAF Tests HTML Report')
+            //jslPublishHTMLTestResults('*.html', 'SampleTests/target/site/serenity', 'Sample STAF Report')
           }
         }
       }
