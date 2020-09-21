@@ -117,14 +117,19 @@ pipeline {
         }
         steps {
           script {
-            sh('curl -k https://ctl-consumer--pp4uat.my.salesforce.com/')
-            sh('cat /etc/hosts')
-            jslMavenWrapper("-f SampleTools/pom.xml clean install")
+            //sh('curl -k https://ctl-consumer--pp4uat.my.salesforce.com/')
+            //sh('cat /etc/hosts')
+            try {
+	      jslMavenWrapper("-f SampleTools/pom.xml clean install")
+            }
+            catch (Exception e) {
+              println "Sample Tools executed but failed. Check the logs." 
+            }
             try {
 	      jslMavenWrapper("-f SampleTests/pom.xml clean verify serenity:aggregate -Dstaf.mal.key=${params.MAL} -Dstaf.testtype.key=${params.TestType} -Dstaf.environment.key=${params.Environment} -Dcucumber.options=\"src/test/resources/features --tags @EShopSanity --plugin json:target/EShopReports.json\" -Dwebdriver.driver=chrome -Dwebdriver.timeouts.implicitlywait=40000")
             }
             catch (Exception e) {
-              println "Tests executed but failed. Check the logs, login is working." 
+              println "Sample Tests executed but failed. Check the logs, login is working." 
             }
             // As tests are failing the index is not generated
             jslPublishHTMLTestResults('index.html','SampleTests/target/site/serenity', 'Sample STAF Tests HTML Report')
