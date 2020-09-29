@@ -13,7 +13,6 @@ VOLUME /sonarqube
 
 WORKDIR /home/jenkins
 
-
 RUN wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.3.0.2102-linux.zip && \
     unzip sonar-scanner-cli-4.3.0.2102-linux.zip
 
