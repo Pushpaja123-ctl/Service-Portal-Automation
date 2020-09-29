@@ -115,12 +115,14 @@ pipeline {
 					//sh('cat /etc/hosts')
 					try {
 						jslMavenWrapper("-f SampleTools/pom.xml clean install")
+ 				                stash name: "TOOL_TARGET", includes: "SampleTools/target/**"
 					}
 					catch (Exception e) {
 						println "Sample Tools executed but failed. Check the logs."
 					}
 					try {
 						jslMavenWrapper("-f SampleTests/pom.xml clean verify serenity:aggregate -Dstaf.mal.key=${params.MAL} -Dstaf.testtype.key=${params.TestType} -Dstaf.environment.key=${params.Environment} -Dcucumber.options=\"src/test/resources/features --tags @EShopSanity --plugin json:target/EShopReports.json\" -Dwebdriver.driver=chrome -Dwebdriver.timeouts.implicitlywait=40000")
+						stash name: "TEST_TARGET", includes: "SampleTools/target/**"
 					}
 					catch (Exception e) {
 						println "Sample Tests executed but failed. Check the logs, login is working."
@@ -170,7 +172,8 @@ pipeline {
 					}
 					steps {
 						script {
-	   				                jslMavenWrapper('-f ./SampleTests/pom.xml clean package')
+	   				                unstash name: "TOOL_TARGET"
+							unstash name: "TEST_TARGET"
 							/* Contract validation gate */
 							jslSonarQubeStaticAnalysis('./cicd/conf/sonarqube/sonar-project.properties')
 						}
