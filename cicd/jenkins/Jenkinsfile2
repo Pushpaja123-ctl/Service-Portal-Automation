@@ -170,7 +170,7 @@ pipeline {
 					}
 					steps {
 						script {
-	   				                jslMavenWrapper('-f ./pom.xml clean package')
+	   				                jslMavenWrapper('-f ./SampleTests/pom.xml clean package')
 							/* Contract validation gate */
 							jslSonarQubeStaticAnalysis('./cicd/conf/sonarqube/sonar-project.properties')
 						}
