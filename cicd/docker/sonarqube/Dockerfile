@@ -13,6 +13,18 @@ VOLUME /sonarqube
 
 WORKDIR /home/jenkins
 
+ARG MAVEN_VERSION=${MAVEN_VERSION:-3.6.0}
+ENV MAVEN_VERSION=${MAVEN_VERSION}
+ENV MAVEN_HOME=/usr/apache-maven-${MAVEN_VERSION}
+ENV PATH=${PATH}:${MAVEN_HOME}/bin
+RUN curl -sL http://archive.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
+  | gunzip \
+  | tar x -C /usr/ \
+  && ln -s ${MAVEN_HOME} /usr/maven
+
+ENV PATH=${PATH}:${JAVA_HOME}/bin
+
+
 RUN wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.3.0.2102-linux.zip && \
     unzip sonar-scanner-cli-4.3.0.2102-linux.zip
 
