@@ -170,7 +170,7 @@ pipeline {
 					}
 					steps {
 						script {
-							unstash name: "TARGET"
+	   				                jslMavenWrapper('-f ./pom.xml clean package')
 							/* Contract validation gate */
 							jslSonarQubeStaticAnalysis('./cicd/conf/sonarqube/sonar-project.properties')
 						}
