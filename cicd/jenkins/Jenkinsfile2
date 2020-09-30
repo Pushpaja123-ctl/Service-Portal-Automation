@@ -122,7 +122,7 @@ pipeline {
 					}
 					try {
 						jslMavenWrapper("-f SampleTests/pom.xml clean verify serenity:aggregate -Dstaf.mal.key=${params.MAL} -Dstaf.testtype.key=${params.TestType} -Dstaf.environment.key=${params.Environment} -Dcucumber.options=\"src/test/resources/features --tags @EShopSanity --plugin json:target/EShopReports.json\" -Dwebdriver.driver=chrome -Dwebdriver.timeouts.implicitlywait=40000")
-						stash name: "TEST_TARGET", includes: "SampleTools/target/**"
+						stash name: "TEST_TARGET", includes: "SampleTests/target/**"
 					}
 					catch (Exception e) {
 						println "Sample Tests executed but failed. Check the logs, login is working."
