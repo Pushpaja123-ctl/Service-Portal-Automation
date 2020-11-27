@@ -80,7 +80,7 @@ pipeline {
 		 */
 		timestamps ()
 		timeout(time: 1, unit: 'HOURS')
-		buildDiscarder(logRotator(numToKeepStr:'3', daysToKeepStr: '5'))
+		buildDiscarder(logRotator(numToKeepStr:'1', daysToKeepStr: '1'))
 		disableConcurrentBuilds()
 	}
 
@@ -88,7 +88,7 @@ pipeline {
 	 https://www.jenkins.io/doc/book/pipeline/syntax/#triggers
 	 */
 	triggers {
-		pollSCM('*/5 * * * *')
+		//pollSCM('*/5 * * * *')
 		issueCommentTrigger('.*test this please.*')
 	}
 
