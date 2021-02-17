@@ -1,4 +1,4 @@
-package com.ctl.it.qa.sample.tools.pages.smallbusiness;
+package com.ctl.it.qa.Smp.tools.pages;
 
 import com.ctl.it.qa.sample.tools.pages.CenturylinkPage;
 

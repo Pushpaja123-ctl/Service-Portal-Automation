@@ -1,31 +1,31 @@
-package com.ctl.it.qa.sample.tools.steps.user;
+package com.ctl.it.qa.Smp.tools.steps.user;
 
 import net.thucydides.core.annotations.Step;
 
 import java.time.Duration;
 
+import com.ctl.it.qa.Smp.tools.pages.SmallBusinessPage;
+import com.ctl.it.qa.Smp.tools.pages.SmpHomePage;
 import com.ctl.it.qa.sample.tools.pages.common.LoginPage;
-import com.ctl.it.qa.sample.tools.pages.smallbusiness.SmallBusinessPage;
 import com.ctl.it.qa.sample.tools.steps.CenturylinkSteps;
 import com.ctl.it.qa.staf.xml.reader.IntDataContainer;
 
 @SuppressWarnings("serial")
 public class UserSteps extends CenturylinkSteps {
 	
-    SmallBusinessPage smallBusinessPage; 
+    //SmallBusinessPage smallBusinessPage; 
     LoginPage loginPage;
-
+    SmpHomePage smphomepage; 
+    
     @Step
-    public void is_in_centurylink_small_business_page() {
+    public void is_in_Smp_Home_Page(String url) {
     	/*
     	 First line: envData is a variable to access Environment data in data input file (excel or xml). Here, url is accessed.
     	 Second line: Maximizing the browser
     	 Third line: shouldExist method checks the page has navigated to the correct page. It check by verifying the WebElementFacade mentioned in method getUniqueElementInPage() in HomePage class exists or not.
     	 */
-    	smallBusinessPage.openAt(envData.getFieldValue("url"));
-    	smallBusinessPage.maximize();
-    	shouldExist(smallBusinessPage, 30);
-    }
+    	//smallBusinessPage.openAt(envData.getFieldValue("url"));
+        }
     
     @Step
 	public void is_in_sso_login_page(String url) {

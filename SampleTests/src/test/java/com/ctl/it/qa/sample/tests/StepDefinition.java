@@ -5,7 +5,7 @@ package com.ctl.it.qa.sample.tests;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
-import com.ctl.it.qa.sample.tools.steps.user.UserSteps;
+import com.ctl.it.qa.Smp.tools.steps.user.UserSteps;
 import com.ctl.it.qa.staf.Page;
 
 import cucumber.api.Scenario;

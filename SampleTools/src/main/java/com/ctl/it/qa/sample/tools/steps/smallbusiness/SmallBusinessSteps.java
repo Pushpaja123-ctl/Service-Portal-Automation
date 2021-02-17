@@ -2,12 +2,12 @@ package com.ctl.it.qa.sample.tools.steps.smallbusiness;
 
 import java.time.Duration;
 
+import com.ctl.it.qa.Smp.tools.pages.CompleteOrderPage;
+import com.ctl.it.qa.Smp.tools.pages.ProductChoosePage;
+import com.ctl.it.qa.Smp.tools.pages.ProductSelectorPage;
+import com.ctl.it.qa.Smp.tools.pages.SmallBusinessPage;
 import com.ctl.it.qa.sample.tools.pages.common.CenturylinkOrderConfirmationPage;
 import com.ctl.it.qa.sample.tools.pages.common.HomePage;
-import com.ctl.it.qa.sample.tools.pages.smallbusiness.CompleteOrderPage;
-import com.ctl.it.qa.sample.tools.pages.smallbusiness.ProductChoosePage;
-import com.ctl.it.qa.sample.tools.pages.smallbusiness.ProductSelectorPage;
-import com.ctl.it.qa.sample.tools.pages.smallbusiness.SmallBusinessPage;
 import com.ctl.it.qa.sample.tools.steps.CenturylinkSteps;
 
 import net.thucydides.core.annotations.Step;

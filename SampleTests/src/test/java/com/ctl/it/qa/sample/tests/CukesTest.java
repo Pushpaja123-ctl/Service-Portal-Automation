@@ -14,9 +14,10 @@ import com.ctl.it.qa.staf.TestEnvironment;
 
 import cucumber.api.CucumberOptions;
 
-@TestEnvironment(Environment.TEST4)//Test Environment on which execution is to happen is provided
+@TestEnvironment(Environment.TEST1)//Test Environment on which execution is to happen is provided
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions(features="src/test/resources/features/", tags={"@Sample"})
+//@CucumberOptions(features="src/test/resources/features/", tags={"@SmpHome"}, plugin = {​ "pretty","html:target/cucumber-htmlreport", "json:target/cucumber-report.json" }​​})
+@CucumberOptions(features="src/test/resources/features/", tags = { "@SmpHome" })
 public class CukesTest {
 	
 	/*
@@ -36,7 +37,7 @@ public class CukesTest {
 	@BeforeClass
 	public static void setEnvironment() {
 		STAFEnvironment.registerEnvironment(CukesTest.class);
-		Steps.initialize("sample.xml");//Data input file name (present in SampleTools/src/test/resources) is provided
+		Steps.initialize("Smp.xml");//Data input file name (present in SampleTools/src/test/resources) is provided
 	}
 	
 	@AfterClass

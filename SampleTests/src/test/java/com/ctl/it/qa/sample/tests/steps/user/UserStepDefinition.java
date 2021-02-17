@@ -7,8 +7,8 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 
+import com.ctl.it.qa.Smp.tools.steps.user.UserSteps;
 import com.ctl.it.qa.sample.tools.pages.common.HomePage;
-import com.ctl.it.qa.sample.tools.steps.user.UserSteps;
 import com.ctl.it.qa.staf.Page;
 
 import cucumber.api.java.en.Given;
@@ -27,17 +27,17 @@ public class UserStepDefinition {
 	    public void I_am_in_Centurylink_portal() {
 	    	String fileType=Serenity.sessionVariableCalled("file_type");//Serenity feature to store value and which can be used anywhere further in the script
 	    	if(fileType.contains("excel")) {
-	    		endUser.switchDataTo("sample.xlsx");//Method to switch between different input data
+	    		endUser.switchDataTo("Smp.xlsx");//Method to switch between different input data
 	    	}else {
-	    		endUser.switchDataTo("sample.xml");
+	    		endUser.switchDataTo("Smp.xml");
 	    	}
-	        endUser.is_in_centurylink_small_business_page();
+	     //   endUser.is_in_centurylink_small_business_page();
 	    }
 	   
 		@SuppressWarnings("static-access")
 		@Given("^I am logged in as a \"([^\"]*)\" user in SSO$")
 		public void i_am_logged_in_as_a_user_in_SSO(String userType) {
-			endUser.switchDataTo("sample.xml");
+			endUser.switchDataTo("Smp.xml");
 			String url = Page.envData.getFieldValue("sso-console");
 			endUser.is_in_sso_login_page(url);
 			endUser.logs_in_sso_as(userType);

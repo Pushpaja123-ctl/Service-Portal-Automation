@@ -22,15 +22,18 @@ public class HomePage extends CenturylinkPage {//Mandatory to extend all page cl
 	
 	@FindBy(id = "signInToggle")
 	public WebElementFacade btn_sign_in;
-	
+		
 	@FindBy(linkText = "SMALL BUSINESS")
 	public WebElementFacade lnk_small_business;
 
-    /*
-     Method used in shouldExist & isExist method
-     */
+	@FindBy(linkText = "Audit")
+	public WebElementFacade link_Audit;
+			
+	/*
+     Method used in shouldExist & isExist method */
+     
 	@Override
 	public WebElementFacade getUniqueElementInPage() {
-		return btn_sign_in;
+		return btn_sign_in; 
 	}
 }

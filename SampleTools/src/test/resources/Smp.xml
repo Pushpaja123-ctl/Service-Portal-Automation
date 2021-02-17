@@ -2,13 +2,14 @@
 <container name="root">
 	<container name="Environments">
 		<container name="TEST1">
+		  <field name="url" value="https://serviceportaldev.corp.global.level3.com/#/Home/" type="mandatory"></field>
 		</container>
 		<container name="TEST2">
 		</container>
 		<container name="TEST3">
 		</container>
 		<container name="TEST4">
-			<field name="url" value="https://webdmzpt1.centurylink.com/small-business/" type="mandatory"></field>
+			<field name="url" value="https://serviceportaldev.corp.global.level3.com/#/Home/" type="mandatory"></field>
 			<field name="sso-console" value="https://ctl--itv1.my.salesforce.com/"></field>
 			<container name="LoginPage">
 				<container name="ssocommercial">
