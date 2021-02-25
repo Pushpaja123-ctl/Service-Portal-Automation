@@ -77,7 +77,7 @@ public class SmpHomePage extends CenturylinkPage {
 		 {
 	     if(lnk_Audit.isDisplayed() && lnk_AuditConfig.isDisplayed() && lnk_Automation.isDisplayed() && lnk_B2B.isDisplayed() && lnk_EAS.isDisplayed() && lnk_EMP.isDisplayed() && lnk_ESP.isDisplayed() )
 	     {
-		    lnk_Audit.click();
+		  //  lnk_Audit.click();
 	    	Items_displayed = true; 
 		    System.out.println("I am in Home page");
 	     }
