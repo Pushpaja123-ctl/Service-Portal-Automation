@@ -9,7 +9,7 @@
 		<container name="TEST3">
 		</container>
 		<container name="TEST4">
-			<field name="url" value="https://serviceportaldev.corp.global.level3.com/#/Home/" type="mandatory"></field>
+			<field name="url" value="https://serviceportalprod.corp.global.level3.com/#/Home" type="mandatory"></field>
 			<field name="sso-console" value="https://ctl--itv1.my.salesforce.com/"></field>
 			<container name="LoginPage">
 				<container name="ssocommercial">
